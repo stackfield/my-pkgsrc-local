@@ -1,0 +1,11 @@
+--- xpcom/io/nsLocalFileUnix.cpp	2017-12-11 00:18:32.283658777 +0900
++++ xpcom/io/nsLocalFileUnix.cpp.orig	2017-11-23 17:28:13.000000000 +0900
+@@ -13,7 +13,7 @@
+ 
+ #include <sys/types.h>
+ #include <sys/stat.h>
+-#if !defined(XP_MACOSX)
++#if !defined(XP_MACOSX) && !defined(__NetBSD__)
+ #include <sys/sysmacros.h> // No longer implicitly included in later glibc
+ #endif
+ #include <unistd.h>

@@ -1,0 +1,15 @@
+--- config/system-headers	2017-12-11 03:03:14.347716934 +0900
++++ config/system-headers.orig	2017-12-11 03:02:57.544054694 +0900
+@@ -1,3 +1,4 @@
++atomic
+ nspr.h
+ plarena.h
+ plarenas.h
+@@ -260,6 +261,7 @@
+ cairo-qpainter.h
+ cairo-qt.h
+ #endif
++complex
+ dfiff.h
+ exception
+ ffi.h
