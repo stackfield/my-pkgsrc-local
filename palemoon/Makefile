@@ -1,17 +1,17 @@
 # $NetBSD$
 
-DISTNAME=	palemoon-27.6.2
+DISTNAME=	palemoon-27.8.0
 CATEGORIES=	www
-MASTER_SITES=	ftp://source:current@ftp2.palemoon.org/
-EXTRACT_SUFX=   .7z
-DISTFILES=	palemoon-27.6.2-source${EXTRACT_SUFX}
+MASTER_SITES=	ftp://source:current@archive.palemoon.org/
+EXTRACT_SUFX=   .tar.gz
+DISTFILES=	palemoon-27.8.0-source${EXTRACT_SUFX}
 
 MAINTAINER=	INSERT_YOUR_MAIL_ADDRESS_HERE
-HOMEPAGE=	ftp://source:current@ftp2.palemoon.org/
+#HOMEPAGE=	ftp://source:current@ftp2.palemoon.org/
 COMMENT=	TODO: Short description of the package
 #LICENSE=	# TODO: (see mk/license.mk)
 
-WRKSRC=		${WRKDIR}/palemoon
+WRKSRC=		${WRKDIR}/Pale-Moon-27.8.0_Release
 EXTRACT_DIR=    ${WRKSRC}
 
 USE_TOOLS+=		pkg-config autoconf213 gmake perl python27 zip
@@ -48,17 +48,24 @@ PKGCONFIG_OVERRIDE+=	xulrunner/installer/mozilla-nspr.pc.in
 #PKGCONFIG_OVERRIDE+=	xulrunner/installer/mozilla-nss.pc.in
 #PKGCONFIG_OVERRIDE+=	xulrunner/installer/mozilla-plugin.pc.in
 
+CONFIGURE_ARGS+= --prefix=${PREFIX}
 CONFIGURE_ARGS+= --enable-application=browser
-CONFIGURE_ARGS+= --with-pthreads
 CONFIGURE_ARGS+= --disable-installer
 CONFIGURE_ARGS+= --disable-updater
+
+CONFIGURE_ARGS+= --disable-debug
+CONFIGURE_ARGS+= --disable-tests
+CONFIGURE_ARGS+= --disable-jemalloc
+CONFIGURE_ARGS+= --with-pthreads
+
+CONFIGURE_ARGS+= --enable-strip
+CONFIGURE_ARGS+= --enable-optimize='-O2'
+
 CONFIGURE_ARGS+= --enable-devtools
 CONFIGURE_ARGS+= --enable-shared-js
+
 CONFIGURE_ARGS+= --enable-pulseaudio
-CONFIGURE_ARGS+= --enable-release
-CONFIGURE_ARGS+= --disable-tests
 CONFIGURE_ARGS+= --with-system-icu
-CONFIGURE_ARGS+= --prefix=${PREFIX}
 
 pre-configure: 
 	chmod 755 -R ${WRKSRC}
@@ -68,13 +75,13 @@ pre-configure:
 do-configure:
 	mkdir ${WRKDIR}/build \
 	&& cd ${WRKDIR}/build \
-	&& env ${CONFIGURE_ENV} ../palemoon/configure ${CONFIGURE_ARGS}
+	&& env ${CONFIGURE_ENV} \
+	   ${WRKSRC}/configure ${CONFIGURE_ARGS}
 
 do-build:
 	cd ${WRKDIR}/build \
 	&& env ${MAKE_ENV} \
-            ${MAKE_PROGRAM} ${BUILD_MAKE_FLAGS} ${_MAKE_JOBS} \
-                -f ${MAKE_FILE}
+            ${MAKE_PROGRAM} ${BUILD_MAKE_FLAGS} ${_MAKE_JOBS} -f ${MAKE_FILE}
 	
 do-install:
 	cd ${WRKDIR}/build \
@@ -84,7 +91,11 @@ do-install:
 		${INSTALL_TARGET}
 
 .include "../../textproc/icu/buildlink3.mk"
+.include "../../graphics/MesaLib/buildlink3.mk"
+.include "../../x11/libX11/buildlink3.mk"
+.include "../../x11/libXt/buildlink3.mk"
 .include "../../x11/gtk2/buildlink3.mk"
 .include "../../sysutils/dbus-glib/buildlink3.mk"
 .include "../../audio/pulseaudio/buildlink3.mk"
+.include "../../multimedia/ffmpeg3/buildlink3.mk"
 .include "../../mk/bsd.pkg.mk"
