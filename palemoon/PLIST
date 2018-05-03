@@ -4099,7 +4099,6 @@ include/${PKGNAME}/nss/shsign.h
 include/${PKGNAME}/nss/smime.h
 include/${PKGNAME}/nss/ssl.h
 include/${PKGNAME}/nss/sslerr.h
-include/${PKGNAME}/nss/sslexp.h
 include/${PKGNAME}/nss/sslproto.h
 include/${PKGNAME}/nss/sslt.h
 include/${PKGNAME}/nss/utilmodt.h

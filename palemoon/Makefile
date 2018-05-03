@@ -1,18 +1,17 @@
 # $NetBSD$
 
-DISTNAME=	palemoon-27.8.0
+DISTNAME=	palemoon-27.9.0
 CATEGORIES=	www
-MASTER_SITES=	ftp://source:current@archive.palemoon.org/
+MASTER_SITES=	https://github.com/MoonchildProductions/Pale-Moon/archive/
 EXTRACT_SUFX=   .tar.gz
-DISTFILES=	palemoon-27.8.0-source${EXTRACT_SUFX}
+DISTFILES=	27.9.0_Release${EXTRACT_SUFX}
 
 MAINTAINER=	INSERT_YOUR_MAIL_ADDRESS_HERE
 #HOMEPAGE=	ftp://source:current@ftp2.palemoon.org/
 COMMENT=	TODO: Short description of the package
 #LICENSE=	# TODO: (see mk/license.mk)
 
-WRKSRC=		${WRKDIR}/Pale-Moon-27.8.0_Release
-EXTRACT_DIR=    ${WRKSRC}
+WRKSRC=		${WRKDIR}/Pale-Moon-27.9.0_Release
 
 USE_TOOLS+=		pkg-config autoconf213 gmake perl python27 zip
 USE_PKGLOCALEDIR=	yes

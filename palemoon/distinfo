@@ -1,8 +1,8 @@
 $NetBSD$
 
-SHA1 (palemoon-27.8.0-source.tar.gz) = 81c2d2016922a392bbe0d2f2f2b2a1b73c284956
-RMD160 (palemoon-27.8.0-source.tar.gz) = 9694c49dea2c7c766c576e3607624a6d091086eb
-SHA512 (palemoon-27.8.0-source.tar.gz) = 6d4bfab4309d67dd31aeaab0a51e6633b9b267ca2102272620fd07b8aebf45b6a30e54c96e994df1fc4ccc2a80c3112d7e1995e7566fcc9e82d1b2cecb5ae38d
-Size (palemoon-27.8.0-source.tar.gz) = 175450616 bytes
+SHA1 (27.9.0_Release.tar.gz) = a04ca63c7ef748c4d74c86205c29e13dd36db3e2
+RMD160 (27.9.0_Release.tar.gz) = 703d4c0d6bff5360027aa381f88ee4d51cdcb2fa
+SHA512 (27.9.0_Release.tar.gz) = b704c3577ec30155b58571480c7286aa48e4d8f59df94ab51756a605ebe5239c4a65fbba276f73b58fbd2c14520b91dca0126ea1069e0658e788389e8ebb9fff
+Size (27.9.0_Release.tar.gz) = 175235763 bytes
 SHA1 (patch-aa) = d7bc6c7c72f8de49ff5af19a67851d5c115cdcda
 SHA1 (patch-ab) = c236c89707d0fa952746d085985a7b14c4ef1561
